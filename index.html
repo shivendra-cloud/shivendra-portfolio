@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/sections.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
@@ -20,34 +21,150 @@
 
 <header class="site-header">
   <div class="container">
-    <a class="mono" href="#top">shiv</a>
-    <nav aria-label="Main"><!-- Phase 2B: navigation --></nav>
+    <a class="brand" href="#top">shiv<span>_</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
 <main id="main">
   <section class="hero" id="top">
     <div class="container">
-      <p class="section__label">Hello, world</p>
-      <h1>Shivendra Shukla</h1>
-      <p class="muted">IT student building practical technology projects.</p>
-      <!-- Phase 2C: hero content and buttons -->
+      <p class="hero__meta">Hello, world</p>
+      <h1>Shivendra Shukla <span class="muted">(Shiv)</span></h1>
+      <p class="hero__lead">IT student in Mumbai building practical technology projects. [Add one sentence about what you are currently focused on.]</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#projects">View projects</a>
+        <a class="btn btn--ghost" href="#contact">Get in touch</a>
+      </div>
     </div>
   </section>
 
-  <section class="section" id="about"><div class="container"><p class="section__label">01 / About</p><h2 class="section__title">About</h2><p class="muted">Placeholder.</p></div></section>
-  <section class="section" id="skills"><div class="container"><p class="section__label">02 / Skills</p><h2 class="section__title">Skills</h2><p class="muted">Placeholder.</p></div></section>
-  <section class="section" id="projects"><div class="container"><p class="section__label">03 / Projects</p><h2 class="section__title">Projects</h2><p class="muted">Placeholder.</p></div></section>
-  <section class="section" id="experience"><div class="container"><p class="section__label">04 / Experience</p><h2 class="section__title">Experience</h2><p class="muted">Placeholder.</p></div></section>
-  <section class="section" id="education"><div class="container"><p class="section__label">05 / Education</p><h2 class="section__title">Education</h2><p class="muted">Placeholder.</p></div></section>
-  <section class="section" id="achievements"><div class="container"><p class="section__label">06 / Achievements</p><h2 class="section__title">Achievements</h2><p class="muted">Placeholder.</p></div></section>
+  <section class="section about" id="about">
+    <div class="container">
+      <p class="section__label">01 / About</p>
+      <h2 class="section__title">About</h2>
+      <p>I am an IT student based in Mumbai. I enjoy building web projects and working in teams, and I led a team at the Smart India Hackathon. [Add two or three sentences in your own words.]</p>
+      <dl class="facts">
+        <div class="fact"><dt>Location</dt><dd>Mumbai, India</dd></div>
+        <div class="fact"><dt>Studying</dt><dd>BSc IT</dd></div>
+        <div class="fact"><dt>Expected graduation</dt><dd>May 2028</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="container">
+      <p class="section__label">02 / Skills</p>
+      <h2 class="section__title">Skills</h2>
+      <div class="grid">
+        <div class="card skill-group"><h3>Frontend</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">Vite</span><span class="tag">Bootstrap</span></div></div>
+        <div class="card skill-group"><h3>Backend and data</h3><div class="tags"><span class="tag">Supabase</span></div></div>
+        <div class="card skill-group"><h3>Tools and hosting</h3><div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Vercel</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <p class="section__label">03 / Projects</p>
+      <h2 class="section__title">Projects</h2>
+      <div class="grid">
+        <article class="card project">
+          <h3>KalaSetu</h3>
+          <p class="project__meta">Smart India Hackathon &middot; SIH26090</p>
+          <p>Team leader, and contributed to the full-stack development. [Add a one-line description of what KalaSetu does.]</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Vite</span></div>
+          <!-- TODO: add repo and demo links -->
+        </article>
+        <article class="card project">
+          <h3>METATCAMPUS</h3>
+          <p class="project__meta">Web project</p>
+          <p>[Add a one-line description of what METATCAMPUS does and your role.]</p>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span><span class="tag">JavaScript</span><span class="tag">Supabase</span><span class="tag">Vercel</span></div>
+          <!-- TODO: add repo and demo links -->
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="container">
+      <p class="section__label">04 / Experience</p>
+      <h2 class="section__title">Experience</h2>
+      <ul class="timeline">
+        <li>
+          <h3>Reddit Growth Intern, SpiritWish</h3>
+          <p class="timeline__when">From 19 May 2026 &middot; extended to six months from 19 August 2026</p>
+          <p class="muted">[Add what you worked on. Do not add metrics unless verified.]</p>
+        </li>
+        <li class="is-ended">
+          <h3>Co-Head, PRD Committee, CSI <span class="badge">Ended</span></h3>
+          <p class="timeline__when">2026&ndash;27 &middot; resigned 21 September 2026</p>
+          <p class="muted">[Add a short description of the role.]</p>
+        </li>
+        <li>
+          <h3>Volunteer, NSS</h3>
+          <p class="timeline__when">Since July 2025</p>
+          <p class="muted">[Add a short description of your NSS activities.]</p>
+        </li>
+        <li class="is-ended">
+          <h3>[Role to confirm], LEGO event</h3>
+          <p class="timeline__when">May 2025</p>
+          <p class="muted">[Add a short description of the role.]</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="container">
+      <p class="section__label">05 / Education</p>
+      <h2 class="section__title">Education</h2>
+      <div class="card">
+        <h3>BSc Information Technology</h3>
+        <p class="timeline__when">Thakur Shyamnarayan Degree College &middot; expected May 2028</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="achievements">
+    <div class="container">
+      <p class="section__label">06 / Achievements</p>
+      <h2 class="section__title">Achievements and certificates</h2>
+      <div class="card">
+        <ul class="cert-list">
+          <li><strong>Smart India Hackathon (SIH26090)</strong> <span class="muted">&mdash; team leader, KalaSetu</span></li>
+          <!-- TODO: verify each certificate (issuer, date, link) before publishing -->
+          <li>AI Engineer <span class="muted">[issuer and date to add]</span></li>
+          <li>IBM Introduction to AI <span class="muted">[date to add]</span></li>
+          <li>NSS LTP <span class="muted">[issuer and date to add]</span></li>
+          <li>Data Analytics <span class="muted">[issuer and date to add]</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="blog"><div class="container"><p class="section__label">07 / Blog</p><h2 class="section__title">Blog</h2><p class="muted">Placeholder.</p></div></section>
   <section class="section" id="resume"><div class="container"><p class="section__label">08 / Resume</p><h2 class="section__title">Resume</h2><p class="muted">Placeholder.</p></div></section>
   <section class="section" id="contact"><div class="container"><p class="section__label">09 / Contact</p><h2 class="section__title">Contact</h2><p class="muted">Placeholder.</p></div></section>
 </main>
 
 <footer class="site-footer">
-  <div class="container"><p>&copy; 2026 Shivendra Shukla. All rights reserved.</p></div>
+  <div class="container"><p>&copy; <span id="year">2026</span> Shivendra Shukla. All rights reserved.</p></div>
 </footer>
+
+<script src="assets/js/navigation.js" defer></script>
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
