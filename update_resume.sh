@@ -1,0 +1,240 @@
+#!/usr/bin/env bash
+set -e
+cd /workspaces/shivendra-portfolio
+mkdir -p assets/css
+
+cat > assets/css/content.css << 'EOF'
+.bullets{list-style:disc;padding-left:1.2rem;color:var(--muted)}
+.bullets li{margin-bottom:.4rem}
+.bullets li::marker{color:var(--accent)}
+.contact-list li{padding:.5rem 0;border-bottom:1px solid var(--border)}
+.contact-list li:last-child{border-bottom:0}
+.contact-list .mono{color:var(--muted);font-size:.85rem;display:inline-block;min-width:6rem}
+.timeline .bullets{margin-top:.4rem}
+EOF
+
+cat > index.html << 'EOF'
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shivendra Shukla (Shiv) | Portfolio</title>
+<meta name="description" content="Portfolio of Shivendra Shukla (Shiv), a second-year BSc IT student in Mumbai with experience in web development, SQL, data analysis and community operations.">
+<meta name="theme-color" content="#0E0F11">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/css/variables.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/layout.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/sections.css">
+<link rel="stylesheet" href="assets/css/content.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="#top">shiv<span>_</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="container">
+      <p class="hero__meta">Hello, world</p>
+      <h1>Shivendra Shukla <span class="muted">(Shiv)</span></h1>
+      <p class="hero__lead">Second-year BSc IT student in Mumbai. I build full-stack web projects and work with SQL, data analysis and digital community growth. Seeking internship and entry-level opportunities in technology, data and digital operations across Europe.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#projects">View projects</a>
+        <a class="btn btn--ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section about" id="about">
+    <div class="container">
+      <p class="section__label">01 / About</p>
+      <h2 class="section__title">About</h2>
+      <p>I am a second-year B.Sc. Information Technology student with hands-on experience in SQL, JavaScript and web development, alongside digital community operations and data-driven research. I have built full-stack projects involving frontend development, backend services, databases and AI integration, and I have worked in audience research and community growth.</p>
+      <dl class="facts">
+        <div class="fact"><dt>Location</dt><dd>Mumbai, India</dd></div>
+        <div class="fact"><dt>Studying</dt><dd>B.Sc. Information Technology</dd></div>
+        <div class="fact"><dt>Expected graduation</dt><dd>2028</dd></div>
+        <div class="fact"><dt>Languages</dt><dd>English, Hindi</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="container">
+      <p class="section__label">02 / Skills</p>
+      <h2 class="section__title">Skills</h2>
+      <div class="grid">
+        <div class="card skill-group"><h3>Technical</h3><div class="tags"><span class="tag">SQL</span><span class="tag">PL/SQL</span><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">Supabase</span></div></div>
+        <div class="card skill-group"><h3>Data and analytics</h3><div class="tags"><span class="tag">Data analysis</span><span class="tag">Research and reporting</span><span class="tag">Audience research</span><span class="tag">Analytical thinking</span></div></div>
+        <div class="card skill-group"><h3>Tools</h3><div class="tags"><span class="tag">Visual Studio Code</span><span class="tag">MySQL Workbench</span><span class="tag">MS Office</span><span class="tag">Vercel</span><span class="tag">GitHub</span></div></div>
+        <div class="card skill-group"><h3>Digital</h3><div class="tags"><span class="tag">Community growth</span><span class="tag">Content engagement</span><span class="tag">Reddit community management</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <p class="section__label">03 / Projects</p>
+      <h2 class="section__title">Projects</h2>
+      <div class="grid">
+        <article class="card project">
+          <h3>KalaSetu</h3>
+          <p class="project__meta">Digital marketplace for artisans &middot; Full-stack developer &middot; Smart India Hackathon SIH26090 (team leader)</p>
+          <ul class="bullets">
+            <li>Developed a digital marketplace connecting artisans with customers to improve product visibility and market access.</li>
+            <li>Built responsive frontend components using HTML, CSS and JavaScript.</li>
+            <li>Developed backend services using Node.js, Express.js and SQL for user management, product listings and platform operations.</li>
+            <li>Integrated AI-powered functionality for product discovery, personalised recommendations and enhanced digital presentation.</li>
+          </ul>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">Express.js</span><span class="tag">SQL</span><span class="tag">AI</span></div>
+          <!-- TODO: add repo and demo links -->
+        </article>
+        <article class="card project">
+          <h3>METATCAMPUS</h3>
+          <p class="project__meta">Digital campus community platform &middot; Full-stack developer</p>
+          <ul class="bullets">
+            <li>Built a campus-focused community platform with user registration, login and a personalised dashboard.</li>
+            <li>Developed core community functionality to support student interaction and engagement.</li>
+            <li>Implemented database-backed functionality using Supabase for user and platform data.</li>
+            <li>Deployed the platform on Vercel for live web access.</li>
+          </ul>
+          <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Bootstrap</span><span class="tag">JavaScript</span><span class="tag">Supabase</span><span class="tag">Vercel</span></div>
+          <!-- TODO: add repo and live demo links -->
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="container">
+      <p class="section__label">04 / Experience</p>
+      <h2 class="section__title">Experience</h2>
+      <ul class="timeline">
+        <li>
+          <h3>Reddit Growth Intern, Spiritwish</h3>
+          <p class="timeline__when">May 2026 &ndash; present &middot; Mumbai, India</p>
+          <ul class="bullets">
+            <li>Monitored engagement trends and documented insights used to improve community content and outreach strategy.</li>
+            <li>Researched audience behaviour and online trends across Reddit communities to identify content and engagement opportunities.</li>
+            <li>Analysed discussion and engagement patterns to support digital community growth and online visibility.</li>
+            <li>Documented research findings to support ongoing reporting and outreach efforts.</li>
+          </ul>
+        </li>
+        <li class="is-ended">
+          <h3>Co-Head, PRD Committee, Computer Society of India (CSI) <span class="badge">Ended</span></h3>
+          <p class="timeline__when">2026&ndash;27 &middot; resigned 21 September 2026 &middot; Mumbai, India</p>
+          <ul class="bullets">
+            <li>Coordinated committee activities and cross-team communication for events and initiatives.</li>
+            <li>Organised documentation and reporting while supporting planning and execution.</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Volunteer, National Service Scheme (NSS)</h3>
+          <p class="timeline__when">2025 &ndash; present &middot; Mumbai, India</p>
+          <ul class="bullets">
+            <li>Took part in community-focused volunteering initiatives requiring coordination, organisation and teamwork.</li>
+            <li>Completed the NSS Leadership Training Program (LTP), strengthening leadership and organisational skills.</li>
+          </ul>
+        </li>
+        <li class="is-ended">
+          <h3>Event Assistant, LEGO Event</h3>
+          <p class="timeline__when">May 2025 &middot; Thane, Maharashtra</p>
+          <ul class="bullets">
+            <li>Supported on-ground event operations, assisting with participant interaction and coordination.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="education">
+    <div class="container">
+      <p class="section__label">05 / Education</p>
+      <h2 class="section__title">Education</h2>
+      <div class="card">
+        <h3>B.Sc. Information Technology</h3>
+        <p class="timeline__when">Thakur Shyamnarayan Degree College, Mumbai &middot; expected 2028</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="achievements">
+    <div class="container">
+      <p class="section__label">06 / Achievements</p>
+      <h2 class="section__title">Certifications and leadership</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Certifications</h3>
+          <ul class="cert-list">
+            <li>AI Engineer <span class="muted">&middot; Jun 2026 &middot; [issuer to add]</span></li>
+            <li>Data Analyst <span class="muted">&middot; Mar 2026 &middot; [issuer to add]</span></li>
+            <li>Introduction to Artificial Intelligence <span class="muted">&middot; IBM &middot; Dec 2025</span></li>
+            <li>Leadership Training Program Certificate <span class="muted">&middot; National Service Scheme &middot; Oct 2025</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Leadership and organisations</h3>
+          <ul class="cert-list">
+            <li>Computer Society of India (CSI) <span class="muted">&middot; Co-Head, PRD Committee (ended)</span></li>
+            <li>National Service Scheme (NSS) <span class="muted">&middot; Volunteer</span></li>
+            <li>Smart India Hackathon (SIH26090) <span class="muted">&middot; team leader, KalaSetu</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="blog"><div class="container"><p class="section__label">07 / Blog</p><h2 class="section__title">Blog</h2><p class="muted">Placeholder.</p></div></section>
+  <section class="section" id="resume"><div class="container"><p class="section__label">08 / Resume</p><h2 class="section__title">Resume</h2><p class="muted">Placeholder. Download link coming in Phase 5.</p></div></section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="section__label">09 / Contact</p>
+      <h2 class="section__title">Contact</h2>
+      <div class="card">
+        <ul class="contact-list">
+          <li><span class="mono">Email</span> <a href="mailto:shivendraxshukla@gmail.com">shivendraxshukla@gmail.com</a></li>
+          <li><span class="mono">LinkedIn</span> <a href="https://www.linkedin.com/in/shivendra-shukla-bb5185392" rel="noopener">linkedin.com/in/shivendra-shukla-bb5185392</a></li>
+          <li><span class="mono">Location</span> Mumbai, India</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container"><p>&copy; <span id="year">2026</span> Shivendra Shukla. All rights reserved.</p></div>
+</footer>
+
+<script src="assets/js/navigation.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
+EOF
+
+git add index.html assets update_resume.sh
+git commit -m "Update content to match resume" || echo "Nothing new to commit"
+git push origin main
+echo "Done. Wait about a minute, then hard-refresh: https://shivendra-cloud.github.io/shivendra-portfolio/"
