@@ -1,29 +1,3 @@
-/* Theme toggle button */
-.theme-toggle {
-  margin-left: 0.5rem;
-  padding: 0.4rem 0.75rem;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  color: var(--text);
-  border-radius: 999px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-.theme-toggle:hover { border-color: var(--accent); }
-.theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-/* Light theme overrides (variable names must match variables.css) */
-html[data-theme="light"] {
-  --bg: #F7F7F4;
-  --surface: #FFFFFF;
-  --border: #DADBD6;
-  --text: #16181B;
-  --muted: #5B5F66;
-  --accent: #4E7A0F;
-  color-scheme: light;
-}
-
 /* Scroll reveal: only applied when JS adds .js-reveal (never under reduced motion) */
 .js-reveal .reveal-target {
   opacity: 0;
