@@ -45,7 +45,7 @@
 
       ctx.beginPath();
       ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(217, 183, 126, 0.55)';
+      ctx.fillStyle = 'rgba(126, 231, 135, 0.55)';
       ctx.fill();
 
       for (var j = i + 1; j < dots.length; j++) {
@@ -56,7 +56,7 @@
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
-          ctx.strokeStyle = 'rgba(217, 183, 126, ' + (0.14 * (1 - d / LINK)).toFixed(3) + ')';
+          ctx.strokeStyle = 'rgba(126, 231, 135, ' + (0.14 * (1 - d / LINK)).toFixed(3) + ')';
           ctx.lineWidth = 1;
           ctx.stroke();
         }
