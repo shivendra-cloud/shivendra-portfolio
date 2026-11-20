@@ -1,0 +1,73 @@
+/* Footer: everything centred */
+footer {
+  text-align: center;
+}
+footer > *,
+footer .container {
+  margin-left: auto;
+  margin-right: auto;
+}
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+footer .social-links {
+  justify-content: center;
+  margin: 0;
+}
+footer p {
+  text-align: center;
+}
+
+/* Intro overlay: "Hello world" typed in, then slides up */
+html.intro-active {
+  overflow: hidden;
+}
+#intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.9s cubic-bezier(0.7, 0, 0.2, 1);
+  cursor: pointer;
+}
+#intro.is-leaving {
+  clip-path: inset(0 0 100% 0);
+}
+.intro-text {
+  font-family: var(--font-mono);
+  font-size: clamp(2.6rem, 9vw, 7rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  white-space: pre;
+}
+.intro-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(40px) rotateX(-90deg);
+  animation: intro-char-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.intro-char.is-accent {
+  color: var(--accent);
+}
+@keyframes intro-char-in {
+  to { opacity: 1; transform: none; }
+}
+.intro-cursor {
+  color: var(--accent);
+  animation: intro-blink 0.7s steps(2) infinite;
+}
+@keyframes intro-blink {
+  50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #intro { display: none; }
+  html.intro-active { overflow: auto; }
+}
