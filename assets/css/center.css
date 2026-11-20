@@ -1,0 +1,52 @@
+/* Centre the bottom options: contact form, button, resume link and footer links */
+#contact .container,
+#contact .section__label,
+#contact .section__title {
+  text-align: center;
+}
+#contact form,
+#contact .contact-form {
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+}
+#contact form label {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+#contact form input,
+#contact form textarea {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#contact form button[type="submit"] {
+  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+#contact .form-status {
+  text-align: center;
+}
+#contact .resume-link {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+footer,
+footer .container,
+footer .social-links,
+footer p {
+  text-align: center;
+  justify-content: center;
+}
+footer .social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
