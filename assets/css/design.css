@@ -1,0 +1,148 @@
+/* Redesign: editorial and technical, with a clear hierarchy */
+
+:root {
+  --radius: 4px;
+}
+
+body {
+  background-color: #0E0F11;
+  background-image:
+    radial-gradient(ellipse at 85% -10%, rgba(181, 242, 61, 0.06), transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: auto, 72px 72px, 72px 72px;
+  background-attachment: fixed;
+}
+
+/* Header: quiet, with a hairline */
+header {
+  background: rgba(14, 15, 17, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Hero: large name, clear hierarchy */
+#hero, section:first-of-type {
+  padding-top: clamp(5rem, 12vw, 9rem);
+}
+section:first-of-type h1 {
+  font-size: clamp(3.2rem, 9vw, 7rem);
+  line-height: 0.92;
+  letter-spacing: -0.045em;
+  max-width: 11ch;
+  margin-bottom: 1.5rem;
+}
+section:first-of-type p {
+  max-width: 52ch;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+/* Section labels: monospace, lime, with a short rule */
+.section__label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.section__label::after {
+  content: "";
+  flex: 0 0 48px;
+  height: 1px;
+  background: var(--border);
+}
+.section__title {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 2.5rem;
+}
+
+/* Sections: hairline dividers, generous spacing */
+.section {
+  border-top: 1px solid var(--border);
+  padding-block: clamp(4.5rem, 10vw, 7.5rem);
+}
+
+/* Cards: squared, with a lime edge on hover */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 2px solid transparent;
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  box-shadow: none;
+}
+.card:hover {
+  border-left-color: var(--accent);
+}
+.card h3 {
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+.card a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+}
+.card a:hover,
+.card a:focus-visible {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Lists: hairline rows, not bullets */
+.cert-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cert-list > * {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.cert-list > *:last-child {
+  border-bottom: 0;
+}
+
+/* Buttons: utilitarian */
+.btn {
+  border-radius: 2px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.2rem;
+}
+.btn:not(.btn--ghost) {
+  background: var(--accent);
+  color: #0E0F11;
+  border-color: var(--accent);
+}
+
+/* Tags: mono chips */
+.tag {
+  border-radius: 2px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  padding: 0.3rem 0.6rem;
+}
+
+/* Footer: quiet and aligned */
+footer {
+  border-top: 1px solid var(--border);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Cursor glow: quieter */
+#cursor-glow {
+  opacity: 0.4 !important;
+}
