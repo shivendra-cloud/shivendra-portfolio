@@ -1,9 +1,0 @@
-/* Site-wide font: Cambria, with Georgia as the fallback on devices without it */
-:root {
-  --font-body: Cambria, Georgia, "Times New Roman", serif;
-}
-html, body, button, input, textarea, select, label, code, pre,
-h1, h2, h3, h4, h5, h6, p, a, li, span, div, .mono, .btn, .tag,
-.section__label, .section__title, footer {
-  font-family: var(--font-body) !important;
-}

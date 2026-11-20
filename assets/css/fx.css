@@ -10,7 +10,7 @@
 .btn:hover {
   transform: translateY(-3px);
   border-color: var(--accent);
-  box-shadow: 0 8px 24px rgba(181, 242, 61, 0.08);
+  box-shadow: 0 8px 24px rgba(217, 183, 126, 0.08);
 }
 .btn:active {
   transform: translateY(0) scale(0.98);
