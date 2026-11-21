@@ -1,7 +1,7 @@
 /* Contact form (Web3Forms), resume link and footer social links.
    Replace WEB3FORMS_ACCESS_KEY once you have the key. */
 (function () {
-  var ACCESS_KEY = 'WEB3FORMS_ACCESS_KEY';
+  var ACCESS_KEY = 'cfbcf645-7c4b-4282-9af0-3536334805bc';
   var ENDPOINT = 'https://api.web3forms.com/submit';
   var EMAIL = 'shivendraxshukla@gmail.com';
   var RESUME = 'assets/Shivendra_Shukla_Resume.pdf';
