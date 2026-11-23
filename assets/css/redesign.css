@@ -210,3 +210,15 @@ div.mock{cursor:default}
 .bg,.glow,.progress,.totop,#fx{display:none!important}
 .blob,.grid{animation:none}
 body{background:var(--bg)}
+
+/* v5 */
+:root{--bg:#0F1115}
+html{background:#0F1115}
+body{background:#0F1115}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(1100px 600px at 50% -8%,rgba(120,140,190,.14),transparent 70%),
+    radial-gradient(900px 500px at 100% 100%,rgba(90,110,150,.07),transparent 70%),
+    linear-gradient(180deg,#12151B 0%,#0F1115 55%,#0D0F13 100%);
+}
