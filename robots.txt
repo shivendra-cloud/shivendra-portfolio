@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shivendra-cloud.github.io/shivendra-portfolio/sitemap.xml
