@@ -128,8 +128,8 @@ if(cv){
 
 /* pointer effects */
 if(!reduce&&hover){
-  var glow=$('#glow'),cur2=$('#cur'),px=0,py=0,tx=0,ty=0;
-  addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;glow.style.left=tx+'px';glow.style.top=ty+'px';cur2.classList.add('on')});
+  var cur2=$('#cur'),px=0,py=0,tx=0,ty=0;
+  addEventListener('mousemove',function(e){tx=e.clientX;ty=e.clientY;cur2.classList.add('on')});
   (function lerp(){px+=(tx-px)*.18;py+=(ty-py)*.18;cur2.style.transform='translate('+px+'px,'+py+'px)';requestAnimationFrame(lerp)})();
   $$('a,button,.tilt,.mock').forEach(function(el){
     el.addEventListener('mouseenter',function(){cur2.classList.add('big')});

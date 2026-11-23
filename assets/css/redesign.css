@@ -205,3 +205,8 @@ div.mock{cursor:default}
 .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(14,15,17,.65));pointer-events:none}
 .photo figcaption{position:absolute;left:16px;bottom:16px;z-index:2;display:inline-flex;align-items:center;gap:8px;font:400 12.5px var(--mono);padding:6px 12px;border-radius:999px;background:var(--nav);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 @media(max-width:940px){.photo{width:min(100%,340px)}}
+
+/* v4 */
+.bg,.glow,.progress,.totop,#fx{display:none!important}
+.blob,.grid{animation:none}
+body{background:var(--bg)}
