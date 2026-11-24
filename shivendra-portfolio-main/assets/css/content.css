@@ -1,0 +1,7 @@
+.bullets{list-style:disc;padding-left:1.2rem;color:var(--muted)}
+.bullets li{margin-bottom:.4rem}
+.bullets li::marker{color:var(--accent)}
+.contact-list li{padding:.5rem 0;border-bottom:1px solid var(--border)}
+.contact-list li:last-child{border-bottom:0}
+.contact-list .mono{color:var(--muted);font-size:.85rem;display:inline-block;min-width:6rem}
+.timeline .bullets{margin-top:.4rem}

@@ -1,0 +1,9 @@
+:root{
+  --bg:#0E0F11; --surface:#16181B; --border:#26292E;
+  --text:#F2F2F0; --muted:#9A9EA6;
+  --accent:#B5F23D; --accent-ink:#0E0F11;
+  --font-sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  --s1:.5rem; --s2:1rem; --s3:1.5rem; --s4:2.5rem; --s5:4rem; --s6:6rem;
+  --radius:12px; --max:1120px; --header-h:64px;
+}

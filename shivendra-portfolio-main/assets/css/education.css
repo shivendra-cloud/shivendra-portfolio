@@ -1,0 +1,26 @@
+#education .edu-card {
+  max-width: 640px;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 10px;
+  background: var(--surface);
+}
+#education .edu-degree {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+}
+#education .edu-school {
+  margin: 0 0 0.75rem;
+  color: var(--text);
+}
+#education .edu-year {
+  display: inline-block;
+  margin: 0;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+}

@@ -1,0 +1,172 @@
+/* Dark, premium direction: ink background, warm off-white text, champagne accent */
+:root {
+  --bg: #0A0A0B;
+  --surface: #121214;
+  --surface-2: #17171A;
+  --border: #242428;
+  --text: #EDEBE6;
+  --muted: #8E8E96;
+  --accent: #7EE787;
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-body: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+
+html { background: var(--bg); color-scheme: dark; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image: radial-gradient(ellipse 80% 50% at 90% -10%, rgba(126, 231, 135, 0.07), transparent 60%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+p { color: var(--muted); margin: 0 0 1rem; }
+a { color: var(--text); text-underline-offset: 4px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Header */
+header {
+  background: rgba(10, 10, 11, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+header nav a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+header nav a:hover { color: var(--text); }
+
+/* Sections */
+.section {
+  border-top: 1px solid var(--border);
+  padding-block: clamp(5rem, 11vw, 9rem);
+}
+.section__label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+.section__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 5.5vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 3rem;
+}
+
+/* Hero: large editorial name */
+section:first-of-type h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.8rem, 11vw, 9rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin: 0 0 1.75rem;
+}
+section:first-of-type p {
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  max-width: 46ch;
+}
+
+/* Headings inside content */
+h2, h3 { font-family: var(--font-display); font-weight: 400; color: var(--text); }
+h3 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 0.5rem; }
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  box-shadow: none;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.card:hover {
+  border-color: rgba(126, 231, 135, 0.45);
+}
+.card h3 a { color: var(--text); text-decoration: none; }
+.card h3 a:hover { color: var(--accent); }
+
+/* Lists */
+.cert-list, .bullets { list-style: none; padding: 0; margin: 0; }
+.cert-list > *, .bullets > li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+.cert-list > *:last-child, .bullets > li:last-child { border-bottom: 0; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #0A0A0B;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+.btn:hover {
+  background: transparent;
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  background: transparent;
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+/* Education card: keep it contained */
+#education .edu-card { border-left: 2px solid var(--accent); }
+#education .edu-degree { font-family: var(--font-display); font-size: 1.9rem; }
+#education .edu-year { border-color: var(--border); color: var(--muted); }
+
+/* Resume download */
+#resume .btn { margin-top: 0.5rem; }
+
+@media (max-width: 720px) {
+  body { font-size: 1rem; }
+  .section { padding-block: 4rem; }
+  .section__title { margin-bottom: 2rem; }
+}

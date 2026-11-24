@@ -1,0 +1,140 @@
+/* ===== enhance.css : theme background, scroll animations, mobile fixes ===== */
+:root{
+  --enh-bg:#0E0F11;          /* matches your theme-color */
+  --enh-accent:#8ab4ff;      /* change this to your accent colour */
+  --enh-ease:cubic-bezier(.22,.8,.24,1);
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:76px;
+  -webkit-text-size-adjust:100%;
+}
+body{
+  background:var(--enh-bg) !important;
+  overflow-x:hidden;
+  -webkit-tap-highlight-color:transparent;
+}
+img,video,svg,iframe{max-width:100%;height:auto}
+h1,h2,h3,p,a,li{overflow-wrap:anywhere}
+
+/* Fixed ambient background that matches the dark theme */
+body::before{
+  content:"";
+  position:fixed; inset:0;
+  z-index:-1; pointer-events:none;
+  background:
+    radial-gradient(60vmax 60vmax at 12% 8%,  color-mix(in srgb,var(--enh-accent) 14%,transparent), transparent 60%),
+    radial-gradient(50vmax 50vmax at 92% 38%, rgba(160,120,255,.10), transparent 60%),
+    radial-gradient(55vmax 55vmax at 20% 95%, color-mix(in srgb,var(--enh-accent) 9%,transparent), transparent 60%),
+    var(--enh-bg);
+  animation:enh-drift 22s ease-in-out infinite alternate;
+}
+@keyframes enh-drift{
+  from{transform:translate3d(0,0,0) scale(1)}
+  to  {transform:translate3d(-2%,2%,0) scale(1.06)}
+}
+
+/* Let the ambient background show through every section */
+section, main, footer{background-color:transparent !important}
+section{position:relative}
+section + section::before{
+  content:""; display:block; height:1px; width:min(1100px,88%);
+  margin:0 auto 0; 
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.10),transparent);
+}
+
+/* Header: glass effect once you scroll */
+header{transition:background .35s var(--enh-ease),box-shadow .35s var(--enh-ease),backdrop-filter .35s}
+header.enh-scrolled{
+  background:rgba(14,15,17,.72) !important;
+  -webkit-backdrop-filter:blur(14px) saturate(140%);
+  backdrop-filter:blur(14px) saturate(140%);
+  box-shadow:0 1px 0 rgba(255,255,255,.07);
+}
+
+/* Scroll progress bar */
+#enh-progress{
+  position:fixed; top:0; left:0; height:3px; width:100%;
+  transform-origin:0 50%; transform:scaleX(0);
+  background:linear-gradient(90deg,var(--enh-accent),#c4a8ff);
+  z-index:9999; pointer-events:none;
+}
+
+/* Active nav link */
+nav a.enh-active{color:var(--enh-accent) !important}
+
+/* ---------- Reveal-on-scroll (only active when JS runs) ---------- */
+.enh-js .enh-reveal{
+  opacity:0; transform:translate3d(0,28px,0);
+  transition:opacity .8s var(--enh-ease),transform .8s var(--enh-ease);
+  transition-delay:var(--enh-d,0ms);
+  will-change:opacity,transform;
+}
+.enh-js .enh-reveal.enh-left {transform:translate3d(-34px,0,0)}
+.enh-js .enh-reveal.enh-right{transform:translate3d(34px,0,0)}
+.enh-js .enh-reveal.enh-pop  {transform:scale(.92)}
+.enh-js .enh-reveal.enh-in{opacity:1;transform:none}
+
+/* Hover polish for cards / project blocks */
+article, section li{transition:transform .35s var(--enh-ease),box-shadow .35s var(--enh-ease),border-color .35s}
+@media (hover:hover){
+  article:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 40px rgba(0,0,0,.45),0 0 0 1px color-mix(in srgb,var(--enh-accent) 35%,transparent);
+  }
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width:768px){
+  body::before{animation:none}                     /* save battery on phones */
+  section{padding-left:20px !important;padding-right:20px !important}
+  main section{padding-top:64px;padding-bottom:64px}
+  #top, header + main > section:first-child{min-height:100svh}
+  h1{font-size:clamp(2.1rem,9.5vw,3.2rem) !important;line-height:1.1}
+  h2{font-size:clamp(1.6rem,7vw,2.2rem) !important}
+  p,li{line-height:1.65}
+
+  /* hero buttons stack nicely */
+  a[href="#projects"],a[href="#contact"]{display:inline-block;margin:6px 6px 0 0}
+
+  /* touch-friendly targets */
+  a,button{min-height:44px}
+  nav a{display:flex;align-items:center}
+
+  /* slide-down mobile menu (JS toggles .enh-open on <header>) */
+  header.enh-nav-ready{position:sticky;top:0;z-index:1000}
+  header.enh-nav-ready .enh-nav{
+    position:fixed; left:0; right:0; top:var(--enh-header-h,60px);
+    max-height:calc(100dvh - var(--enh-header-h,60px));
+    overflow-y:auto;
+    display:flex !important; flex-direction:column; gap:2px;
+    padding:12px 20px 28px;
+    background:rgba(14,15,17,.96);
+    -webkit-backdrop-filter:blur(16px); backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    transform:translateY(-12px); opacity:0; visibility:hidden;
+    transition:transform .35s var(--enh-ease),opacity .3s,visibility 0s .35s;
+  }
+  header.enh-nav-ready.enh-open .enh-nav{
+    transform:none; opacity:1; visibility:visible;
+    transition:transform .35s var(--enh-ease),opacity .3s,visibility 0s;
+  }
+  header.enh-nav-ready .enh-nav ul{
+    display:flex !important; flex-direction:column; gap:2px;
+    margin:0; padding:0; list-style:none;
+  }
+  header.enh-nav-ready .enh-nav a{padding:12px 4px;font-size:1.05rem}
+  body.enh-lock{overflow:hidden}
+
+  /* simpler reveal distance on small screens */
+  .enh-js .enh-reveal.enh-left,.enh-js .enh-reveal.enh-right{transform:translate3d(0,24px,0)}
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  body::before{animation:none}
+  .enh-js .enh-reveal{opacity:1 !important;transform:none !important;transition:none !important}
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}

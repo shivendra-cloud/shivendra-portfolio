@@ -1,0 +1,51 @@
+/* Mobile layer: bottom options centred for phones and small tablets */
+@media (max-width: 720px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  #contact .container,
+  footer .container {
+    padding-inline: 1.25rem;
+    text-align: center;
+  }
+  #contact .section__title {
+    font-size: 2.2rem;
+  }
+  #contact form {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 0;
+    align-items: center;
+  }
+  #contact form label {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    justify-items: center;
+  }
+  #contact form input,
+  #contact form textarea {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  #contact form textarea {
+    text-align: left;
+  }
+  #contact form button[type="submit"] {
+    width: min(100%, 320px);
+    justify-self: center;
+  }
+  #contact .resume-link {
+    margin-inline: auto;
+    padding-inline: 0.5rem;
+  }
+  footer .social-links {
+    gap: 1rem 1.5rem;
+    padding-inline: 1rem;
+  }
+  footer p {
+    font-size: 0.75rem;
+    padding-inline: 1rem;
+  }
+}

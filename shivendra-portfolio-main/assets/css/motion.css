@@ -1,0 +1,85 @@
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  z-index: 10000;
+  pointer-events: none;
+}
+
+/* Cursor glow (behind content, mouse users only) */
+#cursor-glow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(126, 231, 135, 0.12), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hero entrance: only when JS has enabled motion */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+.js-motion .hero-in {
+  animation: hero-rise 0.7s ease both;
+}
+
+/* Scroll-in reveal for headings and cards */
+.js-motion .motion-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.js-motion .motion-in.is-shown {
+  opacity: 1;
+  transform: none;
+}
+
+/* Navigation underline slide */
+header nav a {
+  position: relative;
+}
+header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.25s ease;
+}
+header nav a:hover::after,
+header nav a:focus-visible::after {
+  width: 100%;
+}
+
+/* Reduced motion: no movement, content always visible */
+@media (prefers-reduced-motion: reduce) {
+  #scroll-progress,
+  #cursor-glow {
+    display: none;
+  }
+  .js-motion .hero-in,
+  .js-motion .motion-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  header nav a::after {
+    transition: none;
+  }
+}

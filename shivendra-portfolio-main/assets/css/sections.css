@@ -1,0 +1,28 @@
+.brand{font-family:var(--font-mono);font-weight:600;color:var(--text)}
+.brand span{color:var(--accent)}
+.site-nav ul{display:flex;gap:var(--s3);align-items:center}
+.site-nav a{color:var(--muted);font-size:.92rem;padding:.4rem 0;border-bottom:2px solid transparent}
+.site-nav a:hover{color:var(--text);text-decoration:none}
+.site-nav a[aria-current="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.nav-toggle{display:none;background:none;border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.45rem .8rem;font:inherit;cursor:pointer}
+.hero__meta{font-family:var(--font-mono);color:var(--accent);margin-bottom:var(--s2)}
+.hero__lead{max-width:60ch;color:var(--muted);font-size:1.1rem}
+.hero__actions{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s3)}
+.about p{max-width:70ch}
+.facts{display:grid;gap:var(--s2);margin-top:var(--s3);grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.fact dt{font-family:var(--font-mono);font-size:.8rem;color:var(--muted)}
+.fact dd{margin:0;font-weight:600}
+.skill-group h3{font-size:1rem;font-family:var(--font-mono);color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.project h3{margin-bottom:.25rem}
+.project__meta{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:var(--s2)}
+.project .tags{margin-top:var(--s2)}
+.timeline{border-left:2px solid var(--border);margin-left:.4rem}
+.timeline li{position:relative;padding:0 0 var(--s3) var(--s3)}
+.timeline li::before{content:"";position:absolute;left:-7px;top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.timeline li.is-ended::before{background:var(--muted)}
+.timeline h3{font-size:1.05rem;margin-bottom:.15rem}
+.timeline__when{font-family:var(--font-mono);font-size:.8rem;color:var(--muted);margin-bottom:.4rem}
+.badge{font-family:var(--font-mono);font-size:.7rem;border:1px solid var(--muted);color:var(--muted);border-radius:999px;padding:.1rem .5rem;margin-left:.4rem;vertical-align:middle}
+.cert-list li{padding:.6rem 0;border-bottom:1px solid var(--border)}
+.cert-list li:last-child{border-bottom:0}
