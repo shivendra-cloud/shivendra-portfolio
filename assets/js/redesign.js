@@ -7,7 +7,7 @@ var PC='140,120,255';
 
 /* preloader */
 var pre=$('#pre');if(pre)setTimeout(function(){pre.classList.add('out')},reduce?0:1000);
-setTimeout(start,reduce?0:900);
+if(D.getElementById('ios-hello')&&!reduce)addEventListener('ios-hello:done',start,{once:true});else setTimeout(start,reduce?0:900);
 
 /* marquee */
 var tr=$('.track');if(tr&&!tr.dataset.d){tr.innerHTML+=tr.innerHTML;tr.dataset.d='1'}

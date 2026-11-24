@@ -1,57 +1,51 @@
 /*!
- * ios-hello.js — full-screen, iOS-style multilingual "Hello" intro.
- * Self-contained: injects its own CSS + overlay, needs no other changes.
+ * ios-hello.js - full-screen, iOS-style multilingual "Hello" intro.
+ * Self-contained. Fires "ios-hello:done" on window when it hands over to the site.
  */
 (function () {
   'use strict';
-
   var GREETINGS = [
-    { t: 'Hello',      lang: 'en',    cls: 'script' },
-    { t: 'hola',       lang: 'es',    cls: 'script' },
-    { t: 'bonjour',    lang: 'fr',    cls: 'script' },
-    { t: 'नमस्ते',       lang: 'hi',    cls: 'plain'  },
-    { t: 'こんにちは',     lang: 'ja',    cls: 'plain'  },
-    { t: 'ciao',       lang: 'it',    cls: 'script' },
-    { t: '你好',         lang: 'zh',    cls: 'plain'  },
-    { t: '안녕하세요',     lang: 'ko',    cls: 'plain'  },
-    { t: 'Hello',      lang: 'en',    cls: 'script' }
+    { t: 'Hello',    lang: 'en', cls: 'script' },
+    { t: 'hola',     lang: 'es', cls: 'script' },
+    { t: 'bonjour',  lang: 'fr', cls: 'script' },
+    { t: 'नमस्ते',     lang: 'hi', cls: 'plain'  },
+    { t: 'こんにちは',   lang: 'ja', cls: 'plain'  },
+    { t: 'ciao',     lang: 'it', cls: 'script' },
+    { t: '你好',       lang: 'zh', cls: 'plain'  },
+    { t: '안녕하세요',   lang: 'ko', cls: 'plain'  },
+    { t: 'Hello',    lang: 'en', cls: 'script' }
   ];
-  var STEP_MS = 950;
-  var FADE_MS = 550;
-  var SHOW_ONCE_PER_SESSION = false;
+  var STEP_MS = 640, FADE_MS = 420, SHOW_ONCE_PER_SESSION = false;
 
-  try {
-    if (SHOW_ONCE_PER_SESSION && sessionStorage.getItem('iosHelloSeen')) return;
-  } catch (e) {}
-
-  var reduceMotion = window.matchMedia &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return;
+  try { if (SHOW_ONCE_PER_SESSION && sessionStorage.getItem('iosHelloSeen')) return; } catch (e) {}
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   var css = '' +
   '#ios-hello{position:fixed;inset:0;z-index:2147483000;display:flex;align-items:center;justify-content:center;' +
-    'background:radial-gradient(ellipse at 50% 40%,#101a33 0%,#070b16 70%);' +
-    'opacity:1;transition:opacity ' + 700 + 'ms ease,visibility 0s linear ' + 700 + 'ms;}' +
-  '#ios-hello.done{opacity:0;visibility:hidden;pointer-events:none;}' +
-  '#ios-hello .ih-word{position:absolute;left:50%;top:50%;margin:0;white-space:nowrap;' +
+    'background:radial-gradient(ellipse at 50% 40%,#151c30 0%,#0b0e16 70%);opacity:1;transition:opacity .7s ease,visibility 0s linear .7s}' +
+  '#ios-hello.done{opacity:0;visibility:hidden;pointer-events:none}' +
+  '#ios-hello .ih-word{position:absolute;left:50%;top:50%;margin:0;padding:0 .1em;white-space:nowrap;' +
     'transform:translate(-50%,-50%) scale(.96);opacity:0;filter:blur(10px);' +
-    'font-size:clamp(56px,13vw,150px);line-height:1.1;color:#fff;letter-spacing:.01em;' +
+    'font-size:clamp(56px,13vw,150px);line-height:1.2;letter-spacing:.01em;' +
     'transition:opacity ' + FADE_MS + 'ms ease,filter ' + FADE_MS + 'ms ease,transform ' + (FADE_MS + 250) + 'ms cubic-bezier(.2,.7,.2,1);' +
     'background:linear-gradient(100deg,#ff9f6b 0%,#ff6fa8 35%,#8f7bff 70%,#4cc3ff 100%);' +
-    '-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}' +
-  '#ios-hello .ih-word.script{font-family:"Snell Roundhand","Segoe Script","Apple Chancery","Brush Script MT","Lucida Handwriting",cursive;font-weight:400;}' +
-  '#ios-hello .ih-word.plain{font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Devanagari","Noto Sans JP","Noto Sans SC","Noto Sans KR",sans-serif;font-weight:200;}' +
-  '#ios-hello .ih-word.in{opacity:1;filter:blur(0);transform:translate(-50%,-50%) scale(1);}' +
-  '#ios-hello .ih-word.out{opacity:0;filter:blur(8px);transform:translate(-50%,-50%) scale(1.03);}' +
-  '#ios-hello .ih-skip{position:absolute;right:20px;bottom:20px;background:none;border:0;color:rgba(255,255,255,.45);' +
-    'font:500 13px system-ui,sans-serif;cursor:pointer;padding:8px 12px;letter-spacing:.04em;}' +
-  '#ios-hello .ih-skip:hover,#ios-hello .ih-skip:focus-visible{color:#fff;}' +
-  'html.ios-hello-lock,html.ios-hello-lock body{overflow:hidden;}';
+    '-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}' +
+  '#ios-hello .ih-word.script{font-family:"Snell Roundhand","Segoe Script","Apple Chancery","Brush Script MT","Lucida Handwriting",cursive;font-weight:400}' +
+  '#ios-hello .ih-word.plain{font-family:system-ui,-apple-system,"Segoe UI","Noto Sans Devanagari","Noto Sans JP","Noto Sans SC","Noto Sans KR",sans-serif;font-weight:200}' +
+  '#ios-hello .ih-word.in{opacity:1;filter:blur(0);transform:translate(-50%,-50%) scale(1)}' +
+  '#ios-hello .ih-word.out{opacity:0;filter:blur(8px);transform:translate(-50%,-50%) scale(1.03)}' +
+  '#ios-hello .ih-skip{position:absolute;right:20px;bottom:20px;background:none;border:0;color:rgba(255,255,255,.45);font:500 13px system-ui,sans-serif;cursor:pointer;padding:8px 12px;letter-spacing:.04em}' +
+  '#ios-hello .ih-skip:hover,#ios-hello .ih-skip:focus-visible{color:#fff}' +
+  'html.ios-hello-lock,html.ios-hello-lock body{overflow:hidden}' +
+  'html.ios-hello-lock body>*:not(#ios-hello),html.ios-hello-lock body>*:not(#ios-hello) *{animation-play-state:paused!important}';
 
   var style = document.createElement('style');
-  style.setAttribute('data-ios-hello', '');
   style.textContent = css;
   document.head.appendChild(style);
+
+  // the site's old "shiv_" loader is replaced by this intro
+  var old = document.getElementById('pre');
+  if (old && old.parentNode) old.parentNode.removeChild(old);
 
   var root = document.createElement('div');
   root.id = 'ios-hello';
@@ -75,11 +69,9 @@
   root.appendChild(skip);
 
   document.documentElement.classList.add('ios-hello-lock');
-  (document.body || document.documentElement).appendChild(root);
+  document.body.appendChild(root);
 
-  var timers = [];
-  var finished = false;
-
+  var timers = [], finished = false;
   function later(fn, ms) { timers.push(setTimeout(fn, ms)); }
 
   function finish() {
@@ -90,12 +82,12 @@
     root.classList.add('done');
     document.documentElement.classList.remove('ios-hello-lock');
     window.removeEventListener('keydown', onKey);
+    window.dispatchEvent(new Event('ios-hello:done'));
     setTimeout(function () {
       if (root.parentNode) root.parentNode.removeChild(root);
       if (style.parentNode) style.parentNode.removeChild(style);
     }, 900);
   }
-
   function onKey(e) { if (e.key === 'Escape' || e.key === 'Enter') finish(); }
   window.addEventListener('keydown', onKey);
   skip.addEventListener('click', finish);
@@ -104,8 +96,8 @@
     var start = 250 + i * STEP_MS;
     later(function () { w.classList.add('in'); }, start);
     if (i < words.length - 1) {
-      later(function () { w.classList.remove('in'); w.classList.add('out'); }, start + STEP_MS - FADE_MS + 150);
+      later(function () { w.classList.remove('in'); w.classList.add('out'); }, start + STEP_MS - FADE_MS + 100);
     }
   });
-  later(finish, 250 + words.length * STEP_MS + 150);
+  later(finish, 250 + words.length * STEP_MS + 100);
 })();

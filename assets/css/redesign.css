@@ -221,3 +221,17 @@ body::before{
     radial-gradient(900px 500px at 100% 100%,rgba(100,120,170,.12),transparent 70%),
     linear-gradient(180deg,#151922 0%,#0F1115 55%,#0C0E12 100%);
 }
+
+/* v8 - ambient charcoal/navy background + card elevation */
+html{background:#0F1115}
+body{background:transparent!important}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+  radial-gradient(1100px 620px at 50% -10%,rgba(130,150,205,.22),transparent 70%),
+  radial-gradient(700px 420px at 8% 78%,rgba(124,92,255,.10),transparent 70%),
+  radial-gradient(800px 460px at 100% 100%,rgba(34,211,238,.08),transparent 70%),
+  linear-gradient(180deg,#151922 0%,#0F1115 55%,#0C0E12 100%)}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(130% 95% at 50% 18%,transparent 55%,rgba(5,6,8,.5) 100%)}
+.card,.tile{transition:border-color .3s,box-shadow .4s,background .4s,transform .3s}
+.card:hover,.tile:hover{box-shadow:0 26px 60px -30px rgba(0,0,0,.65);background:rgba(255,255,255,.055)}
+@media(hover:hover){.card:hover,.tile:hover{transform:translateY(-3px)}}
+.mock:hover{box-shadow:0 36px 85px -32px var(--b)}
